@@ -1,0 +1,5 @@
+export {default as Navbar} from './Navbar/Navbar'
+export {default as Home} from './pages/Home/Home'
+export {default as Error} from './pages/Error/Error'
+export {default as Rooms} from './pages/Rooms/Rooms'
+export {default as SingleRoom} from './pages/SingleRoom/SingleRoom'

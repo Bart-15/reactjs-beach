@@ -4,22 +4,15 @@ const styles = makeStyles((theme) => ({
   root: {
     flexGrow: '1',
   },
-
-  container: {
-    marginTop: ' 3%',
-    maxWidth: '900px',
-    position: 'relative',
-  },
   card: {
+    position: 'relative',
     '&:hover': {
       boxShadow: '-18px -21px 0px -3px  rgba(0,0,0,0.25)',
-      transition:'.4s'
+      transition: 'transform 0.15s ease-in-out',
     },
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9,
-    marginTop: '30',
+    height: 300,
     '&:hover': {
       opacity: '0.3',
       transition: '.2s  ease',

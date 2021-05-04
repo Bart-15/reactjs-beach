@@ -113,7 +113,6 @@ class SingleRoom extends Component {
       images,
     } = room
 
-    console.log(images)
     return (
       <>
         <StyledHero img={images[0]}>
@@ -154,7 +153,7 @@ class SingleRoom extends Component {
                 Price : ₱{price}
               </Typography>
               <Typography variant='h6' className={classes.text}>
-                Size : Php{size} SQFT
+                Size : {size} SQFT
               </Typography>
               <Typography variant='h6' className={classes.text}>
                 Max Capacity :{' '}

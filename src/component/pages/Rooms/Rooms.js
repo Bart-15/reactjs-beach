@@ -11,9 +11,7 @@ const Rooms = () => {
     <>
       <Hero hero='roomsHero'>
         <Banner title='our rooms'>
-          <Link component={Button} className={classes.roomBtn} to='/'>
-            Return to home
-          </Link>
+          <Button component={Link} className={classes.roomBtn} to="/">Return to home</Button>
         </Banner>
       </Hero>
       <RoomContainer />

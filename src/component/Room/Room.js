@@ -83,7 +83,7 @@ const Room = ({ rooms }) => {
                   <div className={classes.footer}>
                     <Typography
                       variant='h6'
-                      style={{ letterSpacing: '3px', fontWeight: 'bold' }}
+                      style={{ letterSpacing: '4px', fontWeight: 'bold' }}
                     >
                       {name}
                     </Typography>

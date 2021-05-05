@@ -11,19 +11,21 @@ const Home = () => {
     const classes = useStyles()
     return (
       <>
-      <Hero>
+        <Hero>
           <Banner
             title='luxurious rooms'
             subtitle='deluxe room starting at ₱5,000'
           >
-            <Link component={Button} className={classes.roomBtn} to='/rooms'>
-              our rooms
-            </Link>
+            <Button
+              component={Link}
+              className={classes.roomBtn}
+              to='/rooms'
+            >our rooms</Button>
           </Banner>
-      </Hero>
-      <Services />
-      <FeaturedRooms />
-      {/* <StyledHero>
+        </Hero>
+        <Services />
+        <FeaturedRooms />
+        {/* <StyledHero>
         Hello
       </StyledHero> */}
       </>

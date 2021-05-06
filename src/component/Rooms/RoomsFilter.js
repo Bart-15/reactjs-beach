@@ -1,7 +1,13 @@
 import React from 'react'
 import { useContext } from 'react'
 import { RoomContext } from '../../context'
-import { Grid, TextField, MenuItem } from '@material-ui/core'
+import {
+
+  TextField,
+  MenuItem,
+  Typography,
+
+} from '@material-ui/core'
 import useStyles from './styles'
 const RoomsFilter = ({ rooms }) => {
   const context = useContext(RoomContext)
@@ -34,27 +40,91 @@ const RoomsFilter = ({ rooms }) => {
     )
   })
 
-  // console.log(rooms);
+  //get people
+  let people = getUnique(rooms, 'capacity')
+  people = people.map((item, index) => {
+    return (
+      <MenuItem value={item} key={index}>
+        {item}
+      </MenuItem>
+    )
+  })
+
   return (
-    <Grid container>
-      <form action={classes.formRoot}>
-        <div>
-          <Grid item sm={12}>
-            <TextField
-              label='Select'
-              select
-              name='type'
-              id='type'
-              value={type}
-              onChange={handleChange}
-              helperText='Please select type'
-            >
-                {types}
-            </TextField>
-          </Grid>
+    <form>
+      <div className={classes.formRoot}>
+        <TextField
+          label='Select Room Type'
+          className={classes.field}
+          select
+          name='type'
+          id='type'
+          value={type}
+          onChange={handleChange}
+        >
+          {types}
+        </TextField>
+        {/* guest */}
+        <TextField
+          label='Select Capacity'
+          className={classes.field}
+          select
+          name='capacity'
+          id='capacity'
+          value={capacity}
+          onChange={handleChange}
+        >
+          {people}
+        </TextField>
+        <div className={classes.rangeContainer}>
+          <Typography variant='h5'>Room price ₱{`${price}`}</Typography>
+          <input
+            className={classes.field}
+            type='range'
+            name='price'
+            min={minPrice}
+            max={maxPrice}
+            id='price'
+            value={price}
+            onChange={handleChange}
+          />
         </div>
-      </form>
-    </Grid>
+        {/* Room size */}
+        <div className={classes.rangeContainer}>
+          <Typography variant='h5'>Room size</Typography>
+          <div style={{dislpay:'flex', flexDirection:'column'}}>
+          <TextField type='number' name="minSize"  value={minSize} onChange={handleChange} style={{width:'10ch', margin:'2px' }} id='standard-basic' label='Enter' />
+          <TextField type='number' name="maxSize" style={{width:'10ch', margin:'2px' }} id='maxPrice'  value={maxSize} onChange={handleChange} label='MaxSize' />
+          </div>
+        </div>
+        {/* End Room size */}
+
+        {/* Checkbox container */}
+        <div className={classes.checkContainer}>
+          <input
+            type='checkbox'
+            name='breakfast'
+            id='breakfast'
+            checked={breakfast}
+            onChange={handleChange}
+          />
+          <label style={{ marginLeft: '3px' }} htmlFor='breakfast'>
+            Breakfast
+          </label>
+          <input
+            type='checkbox'
+            name='pets'
+            id='pets'
+            checked={pets}
+            onChange={handleChange}
+          />
+          <label style={{ margin: '2px' }} htmlFor='pets'>
+            Pets
+          </label>
+        </div>
+        {/* End checbox container */}
+      </div>
+    </form>
   )
 }
 

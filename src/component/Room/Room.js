@@ -38,7 +38,6 @@ const Room = ({ rooms }) => {
   //   setHover(0)
   // }
 
-  console.log(hover)
   return (
     <>
       <Container>

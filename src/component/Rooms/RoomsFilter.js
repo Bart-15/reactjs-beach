@@ -94,7 +94,7 @@ const RoomsFilter = ({ rooms }) => {
           <Typography variant='h5'>Room size</Typography>
           <div style={{dislpay:'flex', flexDirection:'column'}}>
           <TextField type='number' name="minSize"  value={minSize} onChange={handleChange} style={{width:'10ch', margin:'2px' }} id='standard-basic' label='Enter' />
-          <TextField type='number' name="maxSize" style={{width:'10ch', margin:'2px' }} id='maxPrice'  value={maxSize} onChange={handleChange} label='MaxSize' />
+          <TextField type='number' name="maxSize" style={{width:'10ch', margin:'2px' }} id='maxPrice'  value={maxSize} onChange={handleChange} label='SFQT' />
           </div>
         </div>
         {/* End Room size */}

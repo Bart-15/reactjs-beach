@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Banner from '../../Banner/Banner'
-import Hero from '../../Hero/Hero'
 import { RoomContext } from '../../../context'
 import { withStyles } from '@material-ui/core/styles'
 import {

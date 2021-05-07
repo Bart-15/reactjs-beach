@@ -6,7 +6,6 @@ import {
   Grid,
   Card,
   CardMedia,
-  CardActions,
   CardActionArea,
   Typography,
   Button,
@@ -60,24 +59,24 @@ const Room = ({ rooms }) => {
                       className={classes.sidePrice}
                       style={{ borderRadius: '0px 30px 0px 30px' }}
                     >
-                      Php {price}{' '}
+                      ₱{price}{' '}
                       <span style={{ display: 'block', fontSize: '15px' }}>
                         per night
                       </span>
                     </Typography>
-
-                   
-                      <div className={hover === index ? classes.showMiddle : classes.middle}>
-
-                         <Button
-                         className={classes.btn}
-                         component={Link}
-                          to={`/rooms/${slug}`}
-                        >
-                          features
-                        </Button>
-
-                      </div>
+                    <div
+                      className={
+                        hover === index ? classes.showMiddle : classes.middle
+                      }
+                    >
+                      <Button
+                        className={classes.btn}
+                        component={Link}
+                        to={`/rooms/${slug}`}
+                      >
+                        features
+                      </Button>
+                    </div>
                   </CardActionArea>
                   <div className={classes.footer}>
                     <Typography

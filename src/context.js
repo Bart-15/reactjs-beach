@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import AOS from 'aos'
 import items from './data'
+import Client from './Contenful'
+
+
+
 const RoomContext = React.createContext()
 //
 class RoomProvider extends Component {
@@ -20,24 +24,39 @@ class RoomProvider extends Component {
     pets:false
   }
 
+  fetchData = async () => {
+    try{
+      let response = await Client.getEntries({
+        content_type: 'bartBeach',
+        order: '-sys.createdAt',
+      })
+      let rooms = this.formatData(response.items)
+      let featuredRooms = rooms.filter((room) => room.featured === true)
+      let maxPrice = Math.max(...rooms.map((item) => item.price))
+      let maxSize = Math.max(...rooms.map((item) => item.size))
+      AOS.init({
+        // initialise with other settings
+        duration: 2000,
+      })
+      this.setState({
+        rooms,
+        sortedRooms: rooms,
+        featuredRooms,
+        loading: false,
+        price: maxPrice,
+        maxPrice,
+        maxSize,
+      })
+      
+    }catch(error) {
+      console.log(error)
+    }
+  } 
+
   componentDidMount() {
-    let rooms = this.formatData(items)
-    let featuredRooms = rooms.filter((room) => room.featured === true)
-    let maxPrice = Math.max(...rooms.map(item => item.price));
-     let maxSize = Math.max(...rooms.map((item) => item.size))
-    AOS.init({
-      // initialise with other settings
-      duration: 2000,
-    })
-    this.setState({
-      rooms,
-      sortedRooms: rooms,
-      featuredRooms,
-      loading: false,
-      price: maxPrice,
-      maxPrice,
-      maxSize
-    })
+
+    this.fetchData();
+    
   }
 
   handleChange = event  => {

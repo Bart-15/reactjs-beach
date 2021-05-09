@@ -1,5 +1,6 @@
 // export default Room
 import React, { useState, useEffect } from 'react'
+import noImage from '../../images/no-image.png'
 import { Link } from 'react-router-dom'
 import {
   Container,
@@ -40,7 +41,6 @@ const Room = ({ rooms }) => {
   return (
     <>
       <Container>
-          
         <Grid container spacing={4}>
           {rooms.map((room, index) => {
             const { name, images, price, slug } = room
@@ -53,7 +53,7 @@ const Room = ({ rooms }) => {
                   onMouseOut={() => setHover(-1)}
                 >
                   <CardActionArea>
-                    <CardMedia className={classes.media} image={images[0]} />
+                    <CardMedia className={classes.media} image={images[0] || noImage} />
                     <Typography
                       variant='h4'
                       className={classes.sidePrice}

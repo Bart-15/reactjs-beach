@@ -14,7 +14,7 @@ const Home = () => {
         <Hero>
           <Banner
             title='luxurious rooms'
-            subtitle='deluxe room starting at ₱5,000'
+            subtitle='single basic room starting at ₱3,000'
           >
             <Button
               component={Link}

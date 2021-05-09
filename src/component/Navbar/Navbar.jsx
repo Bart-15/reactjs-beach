@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {BiMenu} from 'react-icons/bi'
-import {GrClose} from 'react-icons/gr'
 import {Link} from 'react-router-dom'
+import {IoMdClose} from 'react-icons/io'
 import './navbar.css'
 const Navbar = () => {
   const [clicked, setClicked] = useState(false)
@@ -30,7 +30,7 @@ const Navbar = () => {
       </div>
       <div className='mobile-menu' onClick={() => setClicked(!clicked)}>
         {clicked ? (
-          <GrClose size={50} style={{ color: '#fff' }} />
+          <IoMdClose size={50} style={{ color: '#fff' }} />
         ) : (
           <BiMenu size={50} />
         )}

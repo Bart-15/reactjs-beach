@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AOS from 'aos'
-import items from './data'
+//  
 import Client from './Contenful'
 
 

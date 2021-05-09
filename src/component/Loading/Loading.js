@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import loadinggif from '../../images/gif/loading-arrow.gif'
-import Room from '../Room/Room'
 import {withStyles} from '@material-ui/core/styles'
 
 

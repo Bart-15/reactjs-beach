@@ -84,7 +84,6 @@ class SingleRoom extends Component {
     const { classes } = this.props
     const { getRoom } = this.context
     const room = getRoom(this.state.slug)
-    console.log(room)
     if (!room) {
       return (
         <Container>
@@ -112,6 +111,11 @@ class SingleRoom extends Component {
       images,
     } = room
 
+
+    //remove first image in array
+    const [main, ...defaultImages] = images    
+
+
     return (
       <>
         <StyledHero img={images[0]}>
@@ -125,10 +129,10 @@ class SingleRoom extends Component {
         <Container maxWidth='lg'>
           <div className={classes.imageRoot}>
             <GridList className={classes.gridList} cols={1.5} cellHeight={300}>
-              {images.map((image, index) => {
+              {defaultImages.map((image, index) => {
                 return (
                   <GridListTile key={index}>
-                    <img src={image} alt='' />
+                    <img src={image} alt='images' />
                   </GridListTile>
                 )
               })}
@@ -162,27 +166,30 @@ class SingleRoom extends Component {
                 {pets ? 'Pets Allowed' : 'Pets Not Allowed'}
               </Typography>
               <Typography variant='h6' className={classes.text}>
-                {breakfast && "Free Breakfast Included"}
+                {breakfast && 'Free Breakfast Included'}
               </Typography>
             </Grid>
           </Grid>
         </div>
 
         <div className={classes.listContainer}>
-           <Grid container className={classes.descContainer} spacing={6}>
-              <Grid item>
-               <Typography className={classes.title} variant="h4">Extras</Typography>
-                  <ul style={{listStyle:'none'}}>
-                      {
-                          extras.map((extra, index) => {
-                              return (
-                                 <li className={classes.text} key={index}> - {extra}</li>
-                              )
-                          })
-                      }
-                  </ul>
-              </Grid>
-           </Grid>
+          <Grid container className={classes.descContainer} spacing={6}>
+            <Grid item>
+              <Typography className={classes.title} variant='h4'>
+                Extras
+              </Typography>
+              <ul style={{ listStyle: 'none' }}>
+                {extras.map((extra, index) => {
+                  return (
+                    <li className={classes.text} key={index}>
+                      {' '}
+                      - {extra}
+                    </li>
+                  )
+                })}
+              </ul>
+            </Grid>
+          </Grid>
         </div>
       </>
     )
